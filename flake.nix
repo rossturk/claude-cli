@@ -14,25 +14,23 @@
         ];
         pip_python_packages = python.withPackages(f);
 
-        myDevTools = [
-          pip_python_packages
-        ];
         outputName = builtins.attrNames self.outputs self.outputs;
 
-        claude=with pkgs; stdenv.mkDerivation {
+        claude = with pkgs; stdenv.mkDerivation {
           name = "claude-cli";
 
           version = "0.0.1";
-          propagatedBuildInputs = myDevTools;
+          propagatedBuildInputs = [ pip_python_packages ];
           dontUnpack = true;
  
          installPhase = "install -Dm755 ${./claude.py} $out/bin/claude";
         };
       in rec {
         devShells.default = pkgs.mkShell {
-          buildInputs = myDevTools;
+          buildInputs = [ pip_python_packages ];
         };
         packages.default = claude;
         apps.default = flake-utils.lib.mkApp {drv = claude;};
-      });
+      }
+  );
 }
