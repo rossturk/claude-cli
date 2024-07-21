@@ -54,11 +54,11 @@ def claude(model, temperature, max_tokens, infile, outfile, prompt):
         model_fullname = model
 
     if infile:
-        # try:
-        size = os.path.getsize(infile)
-        # except:
-        #     print("Error: could not open", infile)
-        #     exit(1)
+        try:
+            size = os.path.getsize(infile)
+        except:
+            print("Error: could not open", infile)
+            exit(1)
 
         if size > 16383:
             print("Error: input file size exceeds 16kb limit.")
@@ -71,7 +71,7 @@ def claude(model, temperature, max_tokens, infile, outfile, prompt):
     else:
         fullprompt = prompt.strip()
 
-    # try:
+    try:
     client = anthropic.Anthropic()
     message = client.messages.create(
         model=model_fullname,
@@ -79,9 +79,9 @@ def claude(model, temperature, max_tokens, infile, outfile, prompt):
         temperature=temperature,
         messages=[{"role": "user", "content": fullprompt}],
     )
-    # except anthropic.BadRequestError as ex:
-    #     print(ex.body["error"]["message"])
-    #     exit(1)
+    except anthropic.BadRequestError as ex:
+        print(ex.body["error"]["message"])
+        exit(1)
 
     content = message.content[0].text
 
