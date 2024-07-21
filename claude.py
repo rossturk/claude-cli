@@ -72,13 +72,13 @@ def claude(model, temperature, max_tokens, infile, outfile, prompt):
         fullprompt = prompt.strip()
 
     try:
-    client = anthropic.Anthropic()
-    message = client.messages.create(
-        model=model_fullname,
-        max_tokens=max_tokens,
-        temperature=temperature,
-        messages=[{"role": "user", "content": fullprompt}],
-    )
+        client = anthropic.Anthropic()
+        message = client.messages.create(
+            model=model_fullname,
+            max_tokens=max_tokens,
+            temperature=temperature,
+            messages=[{"role": "user", "content": fullprompt}],
+        )
     except anthropic.BadRequestError as ex:
         print(ex.body["error"]["message"])
         exit(1)

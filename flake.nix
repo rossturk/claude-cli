@@ -13,7 +13,7 @@
     # This utility helps us iterate through each of our supported systems
     flake-utils.lib.eachDefaultSystem(system:
       let
-        
+
         # Let's grab Python 3.12 from Nixpkgs 
         pkgs = nixpkgs.legacyPackages.${system};
         python = pkgs.python312;
@@ -25,15 +25,12 @@
           anthropic
         ]);
 
-        # Grblock m'jabber icbog jerslahmpe. I copied this. No idea.
-        outputName = builtins.attrNames self.outputs self.outputs;
-
         # Use the simplest builder, mkDerivation, to create our output
         # (and call it 'claude'
         claude = with pkgs; stdenv.mkDerivation {
 
           # These are important and we all know why
-          name = "claude-cli";
+          pname = "claude";
           version = "0.0.1";
 
           # Make sure we bring those Python packages we defined above
@@ -51,16 +48,12 @@
 
         # Dev shells need our Python packages too
         devShells.default = pkgs.mkShell {
-          buildInputs = [ python_packages ];
+          inputsFrom = [ claude ];
         };
 
         # The main thing inside this flake is the output we called
         # 'claude' and if the flake is run this will be what is run
         packages.default = claude;
-
-        # This comment is proof that I did not write this flake by myself
-        # b/c this line means nothing to me
-        apps.default = flake-utils.lib.mkApp {drv = claude;};
       }
   );
 }
