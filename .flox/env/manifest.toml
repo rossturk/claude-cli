@@ -1,36 +1,41 @@
-## Flox Environment Manifest -----------------------------------------
-##
-##   _Everything_ you need to know about the _manifest_ is here:
-##
-##               https://flox.dev/docs/concepts/manifest
-##
-## -------------------------------------------------------------------
-# Flox manifest version managed by Flox CLI
 version = 1
 
-
-## Install Packages --------------------------------------------------
-##  $ flox install gum  <- puts a package in [install] section below
-##  $ flox search gum   <- search for a package
-##  $ flox show gum     <- show all versions of a package
-## -------------------------------------------------------------------
 [install]
-python312.pkg-path = "python312Packages.pip"
+python.pkg-path = "python312"
+pip.pkg-path = "python312Packages.pip"
 
 [build]
 claude.command = '''
 pip install -r requirements.txt --target=$out
+mkdir -p $out/bin
 cp claude.py $out/bin/claude
 '''
 
-## Other Environment Options -----------------------------------------
+[hook]
+on-activate = '''
+# boilerplate
+export PYTHON_DIR="$FLOX_ENV_CACHE/python"
+if [ ! -d "$PYTHON_DIR" ]; then
+  python -m venv "$PYTHON_DIR"
+fi
+(
+  source "$PYTHON_DIR/bin/activate"
+  pip install -r "$FLOX_ENV_PROJECT/requirements.txt" --quiet
+)
+'''
+
+[profile]
+bash = '''
+  source "$PYTHON_DIR/bin/activate"
+'''
+zsh = '''
+  source "$PYTHON_DIR/bin/activate"
+'''
+
 [options]
-# Systems that environment is compatible with
 systems = [
   "aarch64-darwin",
   "aarch64-linux",
   "x86_64-darwin",
   "x86_64-linux",
 ]
-# Uncomment to disable CUDA detection.
-# cuda-detection = false

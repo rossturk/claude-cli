@@ -3,9 +3,19 @@
   "manifest": {
     "version": 1,
     "install": {
-      "python312": {
+      "pip": {
         "pkg-path": "python312Packages.pip"
+      },
+      "python": {
+        "pkg-path": "python312"
       }
+    },
+    "hook": {
+      "on-activate": "# boilerplate\nexport PYTHON_DIR=\"$FLOX_ENV_CACHE/python\"\nif [ ! -d \"$PYTHON_DIR\" ]; then\n  python -m venv \"$PYTHON_DIR\"\nfi\n(\n  source \"$PYTHON_DIR/bin/activate\"\n  pip install -r \"$FLOX_ENV_PROJECT/requirements.txt\" --quiet\n)\n"
+    },
+    "profile": {
+      "bash": "  source \"$PYTHON_DIR/bin/activate\"\n",
+      "zsh": "  source \"$PYTHON_DIR/bin/activate\"\n"
     },
     "options": {
       "systems": [
@@ -17,7 +27,7 @@
     },
     "build": {
       "claude": {
-        "command": "pip install -r requirements.txt --target=$out\ncp claude.py $out/bin/claude\n"
+        "command": "pip install -r requirements.txt --target=$out\nmkdir -p $out/bin\ncp claude.py $out/bin/claude\n"
       }
     }
   },
@@ -27,7 +37,7 @@
       "broken": false,
       "derivation": "/nix/store/2ixfqmr6n0jp0ji7132cahx4hk3kprrr-python3.12-pip-25.0.1.drv",
       "description": "PyPA recommended tool for installing Python packages",
-      "install_id": "python312",
+      "install_id": "pip",
       "license": "[ MIT ]",
       "locked_url": "https://github.com/flox/nixpkgs?rev=52faf482a3889b7619003c0daec593a1912fddc1",
       "name": "python3.12-pip-25.0.1",
@@ -59,7 +69,7 @@
       "broken": false,
       "derivation": "/nix/store/vj5md45g56fph99zgd66xmrnpq24jzb6-python3.12-pip-25.0.1.drv",
       "description": "PyPA recommended tool for installing Python packages",
-      "install_id": "python312",
+      "install_id": "pip",
       "license": "[ MIT ]",
       "locked_url": "https://github.com/flox/nixpkgs?rev=52faf482a3889b7619003c0daec593a1912fddc1",
       "name": "python3.12-pip-25.0.1",
@@ -91,7 +101,7 @@
       "broken": false,
       "derivation": "/nix/store/4dw25g5x63msibzascb9x15lc8dliwvl-python3.12-pip-25.0.1.drv",
       "description": "PyPA recommended tool for installing Python packages",
-      "install_id": "python312",
+      "install_id": "pip",
       "license": "[ MIT ]",
       "locked_url": "https://github.com/flox/nixpkgs?rev=52faf482a3889b7619003c0daec593a1912fddc1",
       "name": "python3.12-pip-25.0.1",
@@ -123,7 +133,7 @@
       "broken": false,
       "derivation": "/nix/store/v20yxi8wralra40q4vyryj3r60m9i7lj-python3.12-pip-25.0.1.drv",
       "description": "PyPA recommended tool for installing Python packages",
-      "install_id": "python312",
+      "install_id": "pip",
       "license": "[ MIT ]",
       "locked_url": "https://github.com/flox/nixpkgs?rev=52faf482a3889b7619003c0daec593a1912fddc1",
       "name": "python3.12-pip-25.0.1",
@@ -145,6 +155,124 @@
         "dist": "/nix/store/jimva08akkqx0664d5wv9vpp77gmfd21-python3.12-pip-25.0.1-dist",
         "man": "/nix/store/ki6m2w4b4jk1iz9pz0vb8v7x0p60p84l-python3.12-pip-25.0.1-man",
         "out": "/nix/store/n4k89cdabvy17hw583d5h150q6sm3brd-python3.12-pip-25.0.1"
+      },
+      "system": "x86_64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "python312",
+      "broken": false,
+      "derivation": "/nix/store/cb1gsjqlf1dzry390xrsl6ghpaqmsaxd-python3-3.12.9.drv",
+      "description": "High-level dynamically-typed programming language",
+      "install_id": "python",
+      "license": "Python-2.0",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=52faf482a3889b7619003c0daec593a1912fddc1",
+      "name": "python3-3.12.9",
+      "pname": "python312",
+      "rev": "52faf482a3889b7619003c0daec593a1912fddc1",
+      "rev_count": 776537,
+      "rev_date": "2025-03-30T06:12:12Z",
+      "scrape_date": "2025-04-01T01:11:44.768216Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "python3-3.12.9",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/3p3agnh4792y8bgjp0s8xx5bym1ahpks-python3-3.12.9"
+      },
+      "system": "aarch64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "python312",
+      "broken": false,
+      "derivation": "/nix/store/cvm8irmg5j24v0iqk8w6z254jcl9vjzd-python3-3.12.9.drv",
+      "description": "High-level dynamically-typed programming language",
+      "install_id": "python",
+      "license": "Python-2.0",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=52faf482a3889b7619003c0daec593a1912fddc1",
+      "name": "python3-3.12.9",
+      "pname": "python312",
+      "rev": "52faf482a3889b7619003c0daec593a1912fddc1",
+      "rev_count": 776537,
+      "rev_date": "2025-03-30T06:12:12Z",
+      "scrape_date": "2025-04-01T01:30:33.394777Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "python3-3.12.9",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "debug": "/nix/store/p2ym34g9y2w9k3w2pgbj2akn7b5l6xlh-python3-3.12.9-debug",
+        "out": "/nix/store/cxhrrsf7spcgdkrxmlbfzc1bh46rzf7w-python3-3.12.9"
+      },
+      "system": "aarch64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "python312",
+      "broken": false,
+      "derivation": "/nix/store/xzh86qk42dj8pqq3v9qay3ckvb97hyi3-python3-3.12.9.drv",
+      "description": "High-level dynamically-typed programming language",
+      "install_id": "python",
+      "license": "Python-2.0",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=52faf482a3889b7619003c0daec593a1912fddc1",
+      "name": "python3-3.12.9",
+      "pname": "python312",
+      "rev": "52faf482a3889b7619003c0daec593a1912fddc1",
+      "rev_count": 776537,
+      "rev_date": "2025-03-30T06:12:12Z",
+      "scrape_date": "2025-04-01T01:46:51.287042Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "python3-3.12.9",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/8fw6a4is5mkpmr9vd80inz63qdi130m3-python3-3.12.9"
+      },
+      "system": "x86_64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "python312",
+      "broken": false,
+      "derivation": "/nix/store/0mg12776wbbfzw2fdslyhir14cw1cgfj-python3-3.12.9.drv",
+      "description": "High-level dynamically-typed programming language",
+      "install_id": "python",
+      "license": "Python-2.0",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=52faf482a3889b7619003c0daec593a1912fddc1",
+      "name": "python3-3.12.9",
+      "pname": "python312",
+      "rev": "52faf482a3889b7619003c0daec593a1912fddc1",
+      "rev_count": 776537,
+      "rev_date": "2025-03-30T06:12:12Z",
+      "scrape_date": "2025-04-01T02:07:19.709989Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "python3-3.12.9",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "debug": "/nix/store/1kjknndig10774mkf6b2b95kn17q4rm5-python3-3.12.9-debug",
+        "out": "/nix/store/f2krmq3iv5nibcvn4rw7nrnrciqprdkh-python3-3.12.9"
       },
       "system": "x86_64-linux",
       "group": "toplevel",
