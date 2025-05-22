@@ -16,14 +16,7 @@
         "pkg-path": "python312"
       }
     },
-    "options": {
-      "systems": [
-        "aarch64-darwin",
-        "aarch64-linux",
-        "x86_64-darwin",
-        "x86_64-linux"
-      ]
-    },
+    "options": {},
     "build": {
       "claude": {
         "command": "mkdir -p $out/bin\ncp claude.py $out/bin/claude\n"
