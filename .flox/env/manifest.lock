@@ -3,19 +3,18 @@
   "manifest": {
     "version": 1,
     "install": {
+      "anthropic": {
+        "pkg-path": "python312Packages.anthropic"
+      },
+      "click": {
+        "pkg-path": "python312Packages.click"
+      },
       "pip": {
         "pkg-path": "python312Packages.pip"
       },
       "python": {
         "pkg-path": "python312"
       }
-    },
-    "hook": {
-      "on-activate": "# boilerplate\nexport PYTHON_DIR=\"$FLOX_ENV_CACHE/python\"\nif [ ! -d \"$PYTHON_DIR\" ]; then\n  python -m venv \"$PYTHON_DIR\"\nfi\n(\n  source \"$PYTHON_DIR/bin/activate\"\n  pip install -r \"$FLOX_ENV_PROJECT/requirements.txt\" --quiet\n)\n"
-    },
-    "profile": {
-      "bash": "  source \"$PYTHON_DIR/bin/activate\"\n",
-      "zsh": "  source \"$PYTHON_DIR/bin/activate\"\n"
     },
     "options": {
       "systems": [
@@ -27,11 +26,251 @@
     },
     "build": {
       "claude": {
-        "command": "pip install -r requirements.txt --target=$out\nmkdir -p $out/bin\ncp claude.py $out/bin/claude\n"
+        "command": "mkdir -p $out/bin\ncp claude.py $out/bin/claude\n"
       }
     }
   },
   "packages": [
+    {
+      "attr_path": "python312Packages.anthropic",
+      "broken": false,
+      "derivation": "/nix/store/fmmrs3ql2szkxaxbljkbvwgjx5bghma5-python3.12-anthropic-0.49.0.drv",
+      "description": "Anthropic's safety-first language model APIs",
+      "install_id": "anthropic",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=42a1c966be226125b48c384171c44c651c236c22",
+      "name": "python3.12-anthropic-0.49.0",
+      "pname": "anthropic",
+      "rev": "42a1c966be226125b48c384171c44c651c236c22",
+      "rev_count": 779115,
+      "rev_date": "2025-04-05T04:29:29Z",
+      "scrape_date": "2025-04-07T01:12:14.882448Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "0.49.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "dist": "/nix/store/mxq8a18vh50xqk4lcavrgvajfvckbsp6-python3.12-anthropic-0.49.0-dist",
+        "out": "/nix/store/8jrkk77405axzpkd9bymwhz72jd7ylfm-python3.12-anthropic-0.49.0"
+      },
+      "system": "aarch64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "python312Packages.anthropic",
+      "broken": false,
+      "derivation": "/nix/store/lhqp6ay2p23rgxqag347iwjdad08dnvn-python3.12-anthropic-0.49.0.drv",
+      "description": "Anthropic's safety-first language model APIs",
+      "install_id": "anthropic",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=42a1c966be226125b48c384171c44c651c236c22",
+      "name": "python3.12-anthropic-0.49.0",
+      "pname": "anthropic",
+      "rev": "42a1c966be226125b48c384171c44c651c236c22",
+      "rev_count": 779115,
+      "rev_date": "2025-04-05T04:29:29Z",
+      "scrape_date": "2025-04-07T01:31:05.370561Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "0.49.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "dist": "/nix/store/31d2i75kk256x0n3d1p21r11rpp85inx-python3.12-anthropic-0.49.0-dist",
+        "out": "/nix/store/jvsk21xmfwyr9q7asshbk857jz2rpzqx-python3.12-anthropic-0.49.0"
+      },
+      "system": "aarch64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "python312Packages.anthropic",
+      "broken": false,
+      "derivation": "/nix/store/3fjd5ig29hk1dlblqzgq2lyjgm34xv0p-python3.12-anthropic-0.49.0.drv",
+      "description": "Anthropic's safety-first language model APIs",
+      "install_id": "anthropic",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=42a1c966be226125b48c384171c44c651c236c22",
+      "name": "python3.12-anthropic-0.49.0",
+      "pname": "anthropic",
+      "rev": "42a1c966be226125b48c384171c44c651c236c22",
+      "rev_count": 779115,
+      "rev_date": "2025-04-05T04:29:29Z",
+      "scrape_date": "2025-04-07T01:47:23.859655Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "0.49.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "dist": "/nix/store/vxb4gfwvns20j7kn75a4spmdjyn812w4-python3.12-anthropic-0.49.0-dist",
+        "out": "/nix/store/f8jh29j49knk6q3rv886j735ywrzk3vq-python3.12-anthropic-0.49.0"
+      },
+      "system": "x86_64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "python312Packages.anthropic",
+      "broken": false,
+      "derivation": "/nix/store/1097x4pfxw60rvajbpdvrhhd3k4nsw8l-python3.12-anthropic-0.49.0.drv",
+      "description": "Anthropic's safety-first language model APIs",
+      "install_id": "anthropic",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=42a1c966be226125b48c384171c44c651c236c22",
+      "name": "python3.12-anthropic-0.49.0",
+      "pname": "anthropic",
+      "rev": "42a1c966be226125b48c384171c44c651c236c22",
+      "rev_count": 779115,
+      "rev_date": "2025-04-05T04:29:29Z",
+      "scrape_date": "2025-04-07T02:07:19.770110Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "0.49.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "dist": "/nix/store/hhdby88h401wnf27yr7k9hbxglac57q9-python3.12-anthropic-0.49.0-dist",
+        "out": "/nix/store/1r0ab63j34wch2kb2pzp3cxd0163lakh-python3.12-anthropic-0.49.0"
+      },
+      "system": "x86_64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "python312Packages.click",
+      "broken": false,
+      "derivation": "/nix/store/s6flkw3932z42sf3jk6acgyb7x2n5xnf-python3.12-click-8.1.8.drv",
+      "description": "Create beautiful command line interfaces in Python",
+      "install_id": "click",
+      "license": "BSD-3-Clause",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=42a1c966be226125b48c384171c44c651c236c22",
+      "name": "python3.12-click-8.1.8",
+      "pname": "click",
+      "rev": "42a1c966be226125b48c384171c44c651c236c22",
+      "rev_count": 779115,
+      "rev_date": "2025-04-05T04:29:29Z",
+      "scrape_date": "2025-04-07T01:12:15.493674Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "8.1.8",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "dist": "/nix/store/m95l3kmadma0p7pc1bwrkq8jxqynrgnn-python3.12-click-8.1.8-dist",
+        "out": "/nix/store/mgwi7ql0qs3dbh61npasx7w44gnhfjc2-python3.12-click-8.1.8"
+      },
+      "system": "aarch64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "python312Packages.click",
+      "broken": false,
+      "derivation": "/nix/store/6ivxqm0k7vkv9gdylppm0b3669l1gcl8-python3.12-click-8.1.8.drv",
+      "description": "Create beautiful command line interfaces in Python",
+      "install_id": "click",
+      "license": "BSD-3-Clause",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=42a1c966be226125b48c384171c44c651c236c22",
+      "name": "python3.12-click-8.1.8",
+      "pname": "click",
+      "rev": "42a1c966be226125b48c384171c44c651c236c22",
+      "rev_count": 779115,
+      "rev_date": "2025-04-05T04:29:29Z",
+      "scrape_date": "2025-04-07T01:31:06.346094Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "8.1.8",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "dist": "/nix/store/l66hl8fl7g6b1jz7jdb9kp5x6b2kzxyq-python3.12-click-8.1.8-dist",
+        "out": "/nix/store/wyjhx6489nf2y5w60qsal227217vh5hl-python3.12-click-8.1.8"
+      },
+      "system": "aarch64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "python312Packages.click",
+      "broken": false,
+      "derivation": "/nix/store/wqykyqsjahb54xy6ax00cqk7asx9vvx3-python3.12-click-8.1.8.drv",
+      "description": "Create beautiful command line interfaces in Python",
+      "install_id": "click",
+      "license": "BSD-3-Clause",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=42a1c966be226125b48c384171c44c651c236c22",
+      "name": "python3.12-click-8.1.8",
+      "pname": "click",
+      "rev": "42a1c966be226125b48c384171c44c651c236c22",
+      "rev_count": 779115,
+      "rev_date": "2025-04-05T04:29:29Z",
+      "scrape_date": "2025-04-07T01:47:24.466901Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "8.1.8",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "dist": "/nix/store/8423z3m2cpjq7ivcvfv7c4pi97ag1rgy-python3.12-click-8.1.8-dist",
+        "out": "/nix/store/a80pkj1dh6sgw1nbkymwdhmbkwfzdls8-python3.12-click-8.1.8"
+      },
+      "system": "x86_64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "python312Packages.click",
+      "broken": false,
+      "derivation": "/nix/store/i07q855qhgrkfigafdb6kd40ph9jkcjl-python3.12-click-8.1.8.drv",
+      "description": "Create beautiful command line interfaces in Python",
+      "install_id": "click",
+      "license": "BSD-3-Clause",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=42a1c966be226125b48c384171c44c651c236c22",
+      "name": "python3.12-click-8.1.8",
+      "pname": "click",
+      "rev": "42a1c966be226125b48c384171c44c651c236c22",
+      "rev_count": 779115,
+      "rev_date": "2025-04-05T04:29:29Z",
+      "scrape_date": "2025-04-07T02:07:20.819824Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "8.1.8",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "dist": "/nix/store/wi3vhmn1rlj9v6cddl35kfpa49mmdsvk-python3.12-click-8.1.8-dist",
+        "out": "/nix/store/5sv8vflbfs3q0ybspcn0wjy55mzv1app-python3.12-click-8.1.8"
+      },
+      "system": "x86_64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
     {
       "attr_path": "python312Packages.pip",
       "broken": false,
@@ -39,13 +278,13 @@
       "description": "PyPA recommended tool for installing Python packages",
       "install_id": "pip",
       "license": "[ MIT ]",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=52faf482a3889b7619003c0daec593a1912fddc1",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=42a1c966be226125b48c384171c44c651c236c22",
       "name": "python3.12-pip-25.0.1",
       "pname": "pip",
-      "rev": "52faf482a3889b7619003c0daec593a1912fddc1",
-      "rev_count": 776537,
-      "rev_date": "2025-03-30T06:12:12Z",
-      "scrape_date": "2025-04-01T01:11:49.033187Z",
+      "rev": "42a1c966be226125b48c384171c44c651c236c22",
+      "rev_count": 779115,
+      "rev_date": "2025-04-05T04:29:29Z",
+      "scrape_date": "2025-04-07T01:12:18.908898Z",
       "stabilities": [
         "unstable"
       ],
@@ -71,13 +310,13 @@
       "description": "PyPA recommended tool for installing Python packages",
       "install_id": "pip",
       "license": "[ MIT ]",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=52faf482a3889b7619003c0daec593a1912fddc1",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=42a1c966be226125b48c384171c44c651c236c22",
       "name": "python3.12-pip-25.0.1",
       "pname": "pip",
-      "rev": "52faf482a3889b7619003c0daec593a1912fddc1",
-      "rev_count": 776537,
-      "rev_date": "2025-03-30T06:12:12Z",
-      "scrape_date": "2025-04-01T01:30:40.009350Z",
+      "rev": "42a1c966be226125b48c384171c44c651c236c22",
+      "rev_count": 779115,
+      "rev_date": "2025-04-05T04:29:29Z",
+      "scrape_date": "2025-04-07T01:31:11.610294Z",
       "stabilities": [
         "unstable"
       ],
@@ -103,13 +342,13 @@
       "description": "PyPA recommended tool for installing Python packages",
       "install_id": "pip",
       "license": "[ MIT ]",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=52faf482a3889b7619003c0daec593a1912fddc1",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=42a1c966be226125b48c384171c44c651c236c22",
       "name": "python3.12-pip-25.0.1",
       "pname": "pip",
-      "rev": "52faf482a3889b7619003c0daec593a1912fddc1",
-      "rev_count": 776537,
-      "rev_date": "2025-03-30T06:12:12Z",
-      "scrape_date": "2025-04-01T01:46:55.532431Z",
+      "rev": "42a1c966be226125b48c384171c44c651c236c22",
+      "rev_count": 779115,
+      "rev_date": "2025-04-05T04:29:29Z",
+      "scrape_date": "2025-04-07T01:47:27.875991Z",
       "stabilities": [
         "unstable"
       ],
@@ -135,13 +374,13 @@
       "description": "PyPA recommended tool for installing Python packages",
       "install_id": "pip",
       "license": "[ MIT ]",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=52faf482a3889b7619003c0daec593a1912fddc1",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=42a1c966be226125b48c384171c44c651c236c22",
       "name": "python3.12-pip-25.0.1",
       "pname": "pip",
-      "rev": "52faf482a3889b7619003c0daec593a1912fddc1",
-      "rev_count": 776537,
-      "rev_date": "2025-03-30T06:12:12Z",
-      "scrape_date": "2025-04-01T02:07:27.018692Z",
+      "rev": "42a1c966be226125b48c384171c44c651c236c22",
+      "rev_count": 779115,
+      "rev_date": "2025-04-05T04:29:29Z",
+      "scrape_date": "2025-04-07T02:07:26.477168Z",
       "stabilities": [
         "unstable"
       ],
@@ -167,13 +406,13 @@
       "description": "High-level dynamically-typed programming language",
       "install_id": "python",
       "license": "Python-2.0",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=52faf482a3889b7619003c0daec593a1912fddc1",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=42a1c966be226125b48c384171c44c651c236c22",
       "name": "python3-3.12.9",
       "pname": "python312",
-      "rev": "52faf482a3889b7619003c0daec593a1912fddc1",
-      "rev_count": 776537,
-      "rev_date": "2025-03-30T06:12:12Z",
-      "scrape_date": "2025-04-01T01:11:44.768216Z",
+      "rev": "42a1c966be226125b48c384171c44c651c236c22",
+      "rev_count": 779115,
+      "rev_date": "2025-04-05T04:29:29Z",
+      "scrape_date": "2025-04-07T01:12:14.604716Z",
       "stabilities": [
         "unstable"
       ],
@@ -196,13 +435,13 @@
       "description": "High-level dynamically-typed programming language",
       "install_id": "python",
       "license": "Python-2.0",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=52faf482a3889b7619003c0daec593a1912fddc1",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=42a1c966be226125b48c384171c44c651c236c22",
       "name": "python3-3.12.9",
       "pname": "python312",
-      "rev": "52faf482a3889b7619003c0daec593a1912fddc1",
-      "rev_count": 776537,
-      "rev_date": "2025-03-30T06:12:12Z",
-      "scrape_date": "2025-04-01T01:30:33.394777Z",
+      "rev": "42a1c966be226125b48c384171c44c651c236c22",
+      "rev_count": 779115,
+      "rev_date": "2025-04-05T04:29:29Z",
+      "scrape_date": "2025-04-07T01:31:04.932109Z",
       "stabilities": [
         "unstable"
       ],
@@ -226,13 +465,13 @@
       "description": "High-level dynamically-typed programming language",
       "install_id": "python",
       "license": "Python-2.0",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=52faf482a3889b7619003c0daec593a1912fddc1",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=42a1c966be226125b48c384171c44c651c236c22",
       "name": "python3-3.12.9",
       "pname": "python312",
-      "rev": "52faf482a3889b7619003c0daec593a1912fddc1",
-      "rev_count": 776537,
-      "rev_date": "2025-03-30T06:12:12Z",
-      "scrape_date": "2025-04-01T01:46:51.287042Z",
+      "rev": "42a1c966be226125b48c384171c44c651c236c22",
+      "rev_count": 779115,
+      "rev_date": "2025-04-05T04:29:29Z",
+      "scrape_date": "2025-04-07T01:47:23.579158Z",
       "stabilities": [
         "unstable"
       ],
@@ -255,13 +494,13 @@
       "description": "High-level dynamically-typed programming language",
       "install_id": "python",
       "license": "Python-2.0",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=52faf482a3889b7619003c0daec593a1912fddc1",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=42a1c966be226125b48c384171c44c651c236c22",
       "name": "python3-3.12.9",
       "pname": "python312",
-      "rev": "52faf482a3889b7619003c0daec593a1912fddc1",
-      "rev_count": 776537,
-      "rev_date": "2025-03-30T06:12:12Z",
-      "scrape_date": "2025-04-01T02:07:19.709989Z",
+      "rev": "42a1c966be226125b48c384171c44c651c236c22",
+      "rev_count": 779115,
+      "rev_date": "2025-04-05T04:29:29Z",
+      "scrape_date": "2025-04-07T02:07:19.300066Z",
       "stabilities": [
         "unstable"
       ],

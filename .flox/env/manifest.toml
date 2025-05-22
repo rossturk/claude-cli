@@ -3,33 +3,13 @@ version = 1
 [install]
 python.pkg-path = "python312"
 pip.pkg-path = "python312Packages.pip"
+anthropic.pkg-path = "python312Packages.anthropic"
+click.pkg-path = "python312Packages.click"
 
 [build]
 claude.command = '''
-pip install -r requirements.txt --target=$out
 mkdir -p $out/bin
 cp claude.py $out/bin/claude
-'''
-
-[hook]
-on-activate = '''
-# boilerplate
-export PYTHON_DIR="$FLOX_ENV_CACHE/python"
-if [ ! -d "$PYTHON_DIR" ]; then
-  python -m venv "$PYTHON_DIR"
-fi
-(
-  source "$PYTHON_DIR/bin/activate"
-  pip install -r "$FLOX_ENV_PROJECT/requirements.txt" --quiet
-)
-'''
-
-[profile]
-bash = '''
-  source "$PYTHON_DIR/bin/activate"
-'''
-zsh = '''
-  source "$PYTHON_DIR/bin/activate"
 '''
 
 [options]
