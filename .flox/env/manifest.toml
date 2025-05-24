@@ -7,6 +7,7 @@ anthropic.pkg-path = "python312Packages.anthropic"
 click.pkg-path = "python312Packages.click"
 
 [build]
+claude.description="A command-line interface to Claude from Anthropic"
 claude.command = '''
 mkdir -p $out/bin
 cp claude.py $out/bin/claude

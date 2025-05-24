@@ -19,7 +19,8 @@
     "options": {},
     "build": {
       "claude": {
-        "command": "mkdir -p $out/bin\ncp claude.py $out/bin/claude\n"
+        "command": "mkdir -p $out/bin\ncp claude.py $out/bin/claude\n",
+        "description": "A command-line interface to Claude from Anthropic"
       }
     }
   },
